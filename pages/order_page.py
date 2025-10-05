@@ -4,21 +4,12 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators.order_page_locators import OrderPageLocators
 from selenium.webdriver.firefox.webdriver import WebDriver
+from pages.base_page import BasePage
 
-class OrderPageScooter():
+class OrderPageScooter(BasePage):
     
     def __init__(self, driver: WebDriver):
-        self.driver = driver
-
-    def wait_visibility_element(self, locator):
-        return WebDriverWait(self.driver, 6).until(expected_conditions.visibility_of_element_located(locator))
-    
-    def click_on_element(self, locator):
-        self.driver.find_element(*locator).click()
-        
-    def scroll_to_element(self, locator):
-        element = self.driver.find_element(*locator)
-        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+        super().__init__(driver)
 
     def set_name(self, name):
         self.driver.find_element(*OrderPageLocators.NAME_INPUT_LOCATOR).send_keys(name)
@@ -56,7 +47,6 @@ class OrderPageScooter():
         self.set_comment(comment)
         self.click_on_element(OrderPageLocators.ORDER_BUTTON_SCOOTER_LOCATOR)
 
-    def wait_clickable_element(self, locator):
-        return WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable(locator))
+
 
     

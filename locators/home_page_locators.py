@@ -1,9 +1,7 @@
 from selenium.webdriver.common.by import By
+from locators.base_page_locators import BasePageLocators
 
-class HomePageLocators:
-    LOGO_YANDEX_LOCATOR = [By.CLASS_NAME, 'Header_LogoYandex__3TSOI'] # логотип Яндекса
-    LOGO_SCOOTER_LOCATOR = [By.CLASS_NAME, 'Header_LogoScooter__3lsAR'] # логотип Самоката
-    TOP_BUTTON_ORDER_LOCATOR = [By.CLASS_NAME, 'Button_Button__ra12g'] # верхняя кнопка заказа самоката
+class HomePageLocators(BasePageLocators):
     BELOW_ORDER_BUTTON = [By.XPATH, "//div[@class='Home_FinishButton__1_cWm']/button[text()='Заказать']"] # нижняя кнопка заказа самоката Button_Button__ra12g Button_UltraBig__UU3Lp'
     QUESTION_1_LOCATOR = [By.ID, 'accordion__heading-0'] # первый вопрос
     QUESTION_2_LOCATOR= [By.ID, 'accordion__heading-1'] # второй вопрос
