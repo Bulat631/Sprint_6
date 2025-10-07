@@ -12,16 +12,16 @@ class OrderPageScooter(BasePage):
         super().__init__(driver)
 
     def set_name(self, name):
-        self.driver.find_element(*OrderPageLocators.NAME_INPUT_LOCATOR).send_keys(name)
+        self.search_element(OrderPageLocators.NAME_INPUT_LOCATOR).send_keys(name)
 
     def set_sername(self, sername):
-        self.driver.find_element(*OrderPageLocators.SURNAME_INPUT_LOCATOR).send_keys(sername)
+        self.search_element(OrderPageLocators.SURNAME_INPUT_LOCATOR).send_keys(sername)
 
     def set_address(self, address):
-        self.driver.find_element(*OrderPageLocators.ADDRESS_INPUT_LOCATOR).send_keys(address)
+        self.search_element(OrderPageLocators.ADDRESS_INPUT_LOCATOR).send_keys(address)
 
     def set_phone(self, phone):
-        self.driver.find_element(*OrderPageLocators.PHONE_INPUT_LOCATOR).send_keys(phone)
+        self.search_element(OrderPageLocators.PHONE_INPUT_LOCATOR).send_keys(phone)
 
     def fill_in_personal_information(self, name, sername, address, locator_station, phone):
         self.set_name(name)
@@ -33,10 +33,13 @@ class OrderPageScooter(BasePage):
         self.click_on_element(OrderPageLocators.FUTHER_BUTTON_LOCATOR)
 
     def set_data(self, data):
-        self.driver.find_element(*OrderPageLocators.DATE_INPUT_LOCATOR).send_keys(data)
+        self.search_element(OrderPageLocators.DATE_INPUT_LOCATOR).send_keys(data)
 
     def set_comment(self, comment):
-        self.driver.find_element(*OrderPageLocators.COMMENT_INPUT_LOCATOR).send_keys(comment)
+        self.search_element(OrderPageLocators.COMMENT_INPUT_LOCATOR).send_keys(comment)
+
+    def click_to_button_order_confirmation(self):
+        self.click_on_element(OrderPageLocators.CONFIRMATION_OREDER_BUTTON_LOCATOR) 
 
     def fill_about_rent(self, data, period_locator, color_scooter, comment):
         self.set_data(data)

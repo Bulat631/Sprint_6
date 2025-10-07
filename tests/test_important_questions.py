@@ -24,7 +24,7 @@ class TestImportantQuestions:
     )
     def test_important_questions(self, driver, question_locator, answer_locator, text_question):
         home_page = HomePageScooter(driver)
-        home_page.scroll_to_element(HomePageLocators.QUESTION_8_LOCATOR)
+        home_page.scroll_to_block_with_questions()
         home_page.wait_clickable_element(question_locator)
         home_page.click_on_element(question_locator)
         text_element = home_page.get_element_text(answer_locator)
